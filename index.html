@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+    <style>
+    body{
+        margin:0;
+        padding:0;
+    }
+        .container{
+  background:black;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+  width:100vw;
+        }
+  
+  .clock{
+    height:250px;
+    width:250px;
+    border-radius:50%;
+    background-size: contain;
+    background-image:url('https://upload.wikimedia.org/wikipedia/commons/c/cf/Clock_background.png');
+    border:5px solid yellow;
+    display:flex;
+    position:relative;
+    align-items:center;
+    justify-content:center;
+  }
+    .secondHand{
+      position:absolute;
+      left:50%;
+      top:50%;
+      background:red;
+      height:3px;
+      width:40%;
+      /* // transform:rotate(180deg); */
+      transform-origin:left;
+    }
+    .minuteHand{
+      position:absolute;
+      left:50%;
+      top:50%;
+      background:green;
+      height:4px;
+      width:35%;
+      /* // transform:rotate(180deg); */
+      transform-origin:left;
+    }
+    .hourHand{
+      position:absolute;
+      left:50%;
+      top:50%;
+      background:green;
+      height:7px;
+      width:25%;
+      /* // transform:rotate(180deg); */
+      transform-origin:left;
+    }
+    .central{
+      /* // position:absolute; */
+      background:red;
+      height:25px;
+      width:25px;
+      border-radius:50%;
+      z-index:1;
+    }
+    </style>
+    
+</head>
+<body>
+        <div class="container">
+                <div class="clock">
+            <!--       <div class="milliHand"></div> -->
+                  <div class="secondHand"></div>
+                  <div class="minuteHand"></div>
+                  <div class="hourHand"></div>
+                  <div class="central"></div>
+                  
+            <!--       <div class="minuteHand"></div>
+                  <div class="hourHand"></div> -->
+                </div>
+              </div>
+    
+</body>
+<script type="text/javascript">
+    function abc(){
+var currentTime=new Date();
+milli=currentTime.getMilliseconds();
+second=currentTime.getSeconds();
+minute=currentTime.getMinutes();
+hour=currentTime.getHours();
+console.log(milli);
+sec=166/milli;
+// console.log(sec);
+// document.getElementsByClassName('milliHand')[0].style.transform=`rotate(${(milli*6)+270}deg)`;
+document.getElementsByClassName('secondHand')[0].style.transform=`rotate(${((second+(milli/1000))*6+270)}deg)`;
+document.getElementsByClassName('minuteHand')[0].style.transform=`rotate(${(minute*6)+270}deg)`;
+document.getElementsByClassName('hourHand')[0].style.transform=`rotate(${(hour*6)+270}deg)`;
+}
+setInterval(abc,1);
+</script>
+</html>
