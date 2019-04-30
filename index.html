@@ -100,7 +100,7 @@ sec=166/milli;
 // document.getElementsByClassName('milliHand')[0].style.transform=`rotate(${(milli*6)+270}deg)`;
 document.getElementsByClassName('secondHand')[0].style.transform=`rotate(${((second+(milli/1000))*6+270)}deg)`;
 document.getElementsByClassName('minuteHand')[0].style.transform=`rotate(${(minute*6)+270}deg)`;
-document.getElementsByClassName('hourHand')[0].style.transform=`rotate(${(hour*6)+270}deg)`;
+document.getElementsByClassName('hourHand')[0].style.transform=`rotate(${((hour%12)*360/12)+270}deg)`;
 }
 setInterval(abc,1);
 </script>
